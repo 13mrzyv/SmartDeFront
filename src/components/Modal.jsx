@@ -1,0 +1,10 @@
+import { X } from 'lucide-react'
+
+export default function Modal({ title, children, onClose, wide = false }) {
+  return <div className="modal-backdrop" onMouseDown={event => event.target === event.currentTarget && onClose()}>
+    <section className={`modal-card ${wide ? 'modal-wide' : ''}`} role="dialog" aria-modal="true" aria-labelledby="modal-title">
+      <div className="modal-heading"><h2 id="modal-title">{title}</h2><button className="icon-button" onClick={onClose} aria-label="Bağla"><X size={19} /></button></div>
+      {children}
+    </section>
+  </div>
+}
